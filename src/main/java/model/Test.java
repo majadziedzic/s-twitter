@@ -1,9 +1,9 @@
 package model;
 
-import hibernate.util.Hibernateutil;
+import hibernate.util.HibernateUtil;
 
 public class Test {
     public static void main(String[] args) {
-        Hibernateutil.getInstance();
+        HibernateUtil.getInstance();
     }
 }

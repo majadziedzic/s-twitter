@@ -4,18 +4,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Hibernateutil {
-    private static Hibernateutil instance;
+public class HibernateUtil {
+    private static HibernateUtil instance;
 
     private final EntityManagerFactory factory = Persistence.createEntityManagerFactory("myDatabase");
     private final EntityManager entityManager = factory.createEntityManager();
 
-    private Hibernateutil() {
+    private HibernateUtil() {
     }
 
-    public static Hibernateutil getInstance() {
+    public static HibernateUtil getInstance() {
         if (instance == null) {
-            instance = new Hibernateutil();
+            instance = new HibernateUtil();
         }
         return instance;
     }
@@ -28,7 +28,7 @@ public class Hibernateutil {
         }
         entityManager.getTransaction().commit();
     }
-    public void delete(Class clazz, long id) {
+    public void delete(Class clazz, Long id) {
         entityManager.getTransaction().begin();
         Object toRemove = entityManager.find(clazz, id);
         entityManager.remove(toRemove);
